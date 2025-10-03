@@ -41,15 +41,15 @@ def check_strength(password):
 
 """
 Tests
-Waiting:1. check_strength("123456") should return "weak".
-Waiting:2. check_strength("pass!!!") should return "weak".
-Waiting:3. check_strength("Qwerty") should return "weak".
-Waiting:4. check_strength("PASSWORD") should return "weak".
-Waiting:5. check_strength("PASSWORD!") should return "medium".
-Waiting:6. check_strength("PassWord%^!") should return "medium".
-Waiting:7. check_strength("qwerty12345") should return "medium".
-Waiting:8. check_strength("PASSWORD!") should return "medium".
-Waiting:9. check_strength("PASSWORD!") should return "medium".
-Waiting:10. check_strength("S3cur3P@ssw0rd") should return "strong".
-Waiting:11. check_strength("C0d3&Fun!") should return "strong".
+Passed:1. check_strength("123456") should return "weak".
+Passed:2. check_strength("pass!!!") should return "weak".
+Passed:3. check_strength("Qwerty") should return "weak".
+Passed:4. check_strength("PASSWORD") should return "weak".
+Passed:5. check_strength("PASSWORD!") should return "medium".
+Passed:6. check_strength("PassWord%^!") should return "medium".
+Passed:7. check_strength("qwerty12345") should return "medium".
+Passed:8. check_strength("PASSWORD!") should return "medium".
+Passed:9. check_strength("PASSWORD!") should return "medium".
+Passed:10. check_strength("S3cur3P@ssw0rd") should return "strong".
+Passed:11. check_strength("C0d3&Fun!") should return "strong".
 """
