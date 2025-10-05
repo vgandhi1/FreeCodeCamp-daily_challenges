@@ -21,6 +21,9 @@ def has_exoplanet(readings):
         
         list_value.append(val)
 
+    if not list_value:
+        return False
+
     avg_value = sum(list_value)/len(list_value)
     threshold = 0.8
     threshold_value = threshold*avg_value
