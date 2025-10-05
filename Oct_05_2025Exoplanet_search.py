@@ -26,3 +26,13 @@ def has_exoplanet(readings):
     threshold_value = threshold*avg_value
 
     return any( val <= threshold_value for val in list_value)
+
+
+"""
+Passed:1. has_exoplanet("665544554") should return False.
+Passed:2. has_exoplanet("FGFFCFFGG") should return True.
+Passed:3. has_exoplanet("MONOPLONOMONPLNOMPNOMP") should return False.
+Passed:4. has_exoplanet("FREECODECAMP") should return True.
+Passed:5. has_exoplanet("9AB98AB9BC98A") should return False.
+Passed:6. has_exoplanet("ZXXWYZXYWYXZEGZXWYZXYGEE") should return True.
+"""
