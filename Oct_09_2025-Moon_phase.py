@@ -40,10 +40,10 @@ def moon_phase(date_string):
 
 
 """
-Waiting:1. moon_phase("2000-01-12") should return "New".
-Waiting:2. moon_phase("2000-01-13") should return "Waxing".
-Waiting:3. moon_phase("2014-10-15") should return "Full".
-Waiting:4. moon_phase("2012-10-21") should return "Waning".
-Waiting:5. moon_phase("2022-12-14") should return "New".
+Passed:1. moon_phase("2000-01-12") should return "New".
+Passed:2. moon_phase("2000-01-13") should return "Waxing".
+Passed:3. moon_phase("2014-10-15") should return "Full".
+Passed:4. moon_phase("2012-10-21") should return "Waning".
+Passed:5. moon_phase("2022-12-14") should return "New".
 """
 
