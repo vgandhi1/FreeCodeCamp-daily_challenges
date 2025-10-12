@@ -20,37 +20,28 @@ def battle(our_team, opponent):
     length_condition = n_our_team == n_opponent
     space_char_condition = (" " in our_team) & (" " in opponent) & (our_team.replace(" ", "a").isalpha()) & (opponent.replace(" ", "a").isalpha())
 
-
     battle_point = 0
-    our_team_score = []
-    opponent_score = []
-
+    
+    def team_score(team):
+        team_score = []
+        for words in team.split():
+            word_score = 0
+            for char in words:
+                if char.isupper():
+                    value = (ord(char) - ord("A") + 1) * 2
+                elif char.islower():
+                    value = ord(char) - ord("a") + 1
+                else:
+                    print("invalid character")
+                word_score += value
+            
+            team_score.append(word_score)
+        return team_score
+            
+         
     if space_char_condition & length_condition:
-        for words in our_team.split():
-            word_score = 0
-            for char in words:
-                if char.isupper():
-                    value = ord(char) - ord("A") + 2
-                elif char.islower():
-                    value = ord(char) - ord("a") + 1
-                else:
-                    print("invalid character")
-                word_score += value
-            
-            our_team_score.append(word_score)   
-
-        for words in opponent.split():
-            word_score = 0
-            for char in words:
-                if char.isupper():
-                    value = ord(char) - ord("A") + 2
-                elif char.islower():
-                    value = ord(char) - ord("a") + 1
-                else:
-                    print("invalid character")
-                word_score += value
-            
-            opponent_score.append(word_score)  
+        our_team_score = team_score(our_team)
+        opponent_score = team_score(opponent)
 
         for score_x, score_y in zip(our_team_score, opponent_score):
             
@@ -69,8 +60,63 @@ def battle(our_team, opponent):
             return "We lose"
         if battle_point == 0:
             return "Draw"
+
+
 #battle("Cheeseburger with fries", "Cheeseburger with Fries")
+
 #battle("Hello world", "hello world")
+#battle("Cheeseburger with fries", "Cheeseburger with Fries")
+
+#alternate way
+
+def battle(our_team, opponent):
+    """
+    Determines the winner of a battle of words between two teams.
+
+    Args:
+        our_team (str): A string representing our team's words.
+        opponent (str): A string representing the opposing team's words.
+
+    Returns:
+        str: "We win", "We lose", or "Draw" based on the outcome.
+    """
+    
+    def calculate_word_value(word):
+        """Calculates the value of a single word based on letter values."""
+        value = 0
+        for char in word:
+            if 'a' <= char <= 'z':
+                value += ord(char) - ord('a') + 1
+            elif 'A' <= char <= 'Z':
+                value += (ord(char) - ord('A') + 1) * 2
+        return value
+
+    our_words = our_team.split()
+    opponent_words = opponent.split()
+
+    if len(our_words) != len(opponent_words):
+        # As per the rules, sentences will always have the same number of words.
+        # This check is for robustness but is not required by the prompt.
+        return "Error: Sentences must have the same number of words."
+
+    our_wins = 0
+    opponent_wins = 0
+
+    for i in range(len(our_words)):
+        our_word_value = calculate_word_value(our_words[i])
+        opponent_word_value = calculate_word_value(opponent_words[i])
+
+        if our_word_value > opponent_word_value:
+            our_wins += 1
+        elif opponent_word_value > our_word_value:
+            opponent_wins += 1
+            
+    if our_wins > opponent_wins:
+        return "We win"
+    elif opponent_wins > our_wins:
+        return "We lose"
+    else:
+        return "Draw"
 
 
 """
