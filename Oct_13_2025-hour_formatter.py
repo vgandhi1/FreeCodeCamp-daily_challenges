@@ -17,6 +17,23 @@ def to_12(time):
         remainder = hour%12
         return f"{remainder}:{minute} PM"
 
+def to_12(time):
+    hour = int(time[0:2])
+    minute = time[2:]
+
+    # Determine AM or PM
+    meridiem = "AM"
+    if hour >= 12:
+        meridiem = "PM"
+
+    # Convert hour to 12-hour format
+    if hour == 0:
+        hour = 12
+    elif hour > 12:
+        hour -= 12
+
+    return f"{hour}:{minute} {meridiem}"
+
   """
   Tests
 Waiting:1. to_12("1124") should return "11:24 AM".
