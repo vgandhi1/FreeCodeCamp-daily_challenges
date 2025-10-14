@@ -50,7 +50,7 @@ Waiting:2. find_landing_spot([[9, 0, 3], [7, 0, 4], [8, 0, 5]]) should return [1
 Waiting:3. find_landing_spot([[1, 2, 1], [0, 0, 2], [3, 0, 0]]) should return [2, 2].
 Waiting:4. find_landing_spot([[9, 6, 0, 8], [7, 1, 1, 0], [3, 0, 3, 9], [8, 6, 0, 9]]) should return [2, 1].
 """
-"""
+
 #alternative
 def find_landing_spot(matrix):
     """
@@ -102,5 +102,5 @@ def find_landing_spot(matrix):
     safest_spot_coords = list(safest_spot_data[0])
     
     return safest_spot_coords
-    """
+  
 
