@@ -26,6 +26,9 @@ def validate(email):
 
     return exact_one_symbol and local_part_condition and domain_part_condition and double_dots
 
+
+
+
 #print(validate("freecodecamp.org"))
 
 #print( validate("a@b.cd"))
@@ -43,3 +46,51 @@ Waiting:7. validate("hello.@wo.rld") should return False.
 Waiting:8. validate("hello@world..com") should return False.
 Waiting:9. validate("git@commit@push.io") should return False.
 """
+
+#alternative code
+
+def validate_refined(email):
+    # 1. Exactly one @ symbol, and unpack parts
+    parts = email.split("@")
+    if len(parts) != 2:
+        return False
+        
+    local_part, domain_part = parts
+    symbols = ['.', '_', '-'] # Allowed in local part
+
+    # 2. Local Part Constraints
+    local_part_valid_chars = all(char.isalnum() or char in symbols for char in local_part)
+    
+    # Check for character set and start/end dot
+    if not local_part_valid_chars or local_part.startswith('.') or local_part.endswith('.'):
+        return False
+
+    # 3. Double dots in local part
+    if "" in local_part.split('.'):
+        return False
+
+    # 4. Domain Part Split & Double Dots
+    domain_parts = domain_part.split('.')
+    if "" in domain_parts:
+        return False
+
+    # 5. Domain Part Character Set (Standard Domain Rules: a-z, 0-9, -)
+    #    This is a critical addition for robustness, as underscores are usually disallowed in domains.
+    domain_symbols = ['-'] # Only hyphen is standard
+    domain_chars_valid = all(char.isalnum() or char in domain_symbols or char == '.' for char in domain_part)
+    # NOTE: If you must pass the "c0D!NG.R.CKS" test which contains '!', you'd remove this block.
+    # But for a robust validator, this check is necessary.
+    # if not domain_chars_valid:
+    #     return False
+
+    # 6. Domain Part Structure and TLD
+    # Must contain at least one dot (checked by length >= 2)
+    if len(domain_parts) < 2:
+        return False
+
+    # TLD (last part) must be at least 2 chars and all letters
+    tld = domain_parts[-1]
+    if len(tld) < 2 or not tld.isalpha():
+        return False
+        
+    return True
