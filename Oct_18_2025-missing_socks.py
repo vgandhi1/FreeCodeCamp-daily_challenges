@@ -46,10 +46,12 @@ def sock_pairs(pairs, cycles):
         # For efficiency, it's best to calculate 'pairs' only once at the end.
             
     # Calculate the total number of pairs
-    final_pairs = no_of_socks / 2
+    # final_pairs = no_of_socks / 2
+    # return int(final_pairs)
+    
     
     # Return only the complete pairs by truncating the decimal (e.g., 3.5 becomes 3)
-    return int(final_pairs)
+    return no_of_socks / 2 #int(final_pairs)
 
 """
 1. sock_pairs(2, 5) should return 1.
