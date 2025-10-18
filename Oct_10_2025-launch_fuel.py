@@ -21,7 +21,7 @@ def launch_fuel(payload):
     while fuel - previous_fuel > 1:
         
         previous_fuel = fuel
-        total_mass = payload + fuel 
+        total_mass = payload + previous_fuel  
         fuel = total_mass/5
 
     return round(fuel,1)
