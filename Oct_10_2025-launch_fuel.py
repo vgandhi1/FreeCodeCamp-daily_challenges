@@ -26,6 +26,33 @@ def launch_fuel(payload):
 
 print(launch_fuel(50))
 
+#alternative 
+
+def launch_fuel(payload):
+
+    mass_to_lift = payload
+    total_fuel = 0
+
+    while True:
+        
+        fuel_needed = mass_to_lift/5
+        total_fuel += fuel_needed
+        mass_to_lift = fuel_needed
+           
+          
+
+    #total_fuel += fuel
+        if fuel_needed < 1 :
+            break
+        
+
+    return round(total_fuel,1)
+
+print(launch_fuel(50))
+
+
+
+
 """
 Passed:1. launch_fuel(50) should return 12.4.
 Passed:2. launch_fuel(500) should return 124.8.
