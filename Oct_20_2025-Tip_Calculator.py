@@ -7,18 +7,29 @@ Custom tip percents will be given in this format: "25%".
 Return amounts in the same "$N.NN" format, rounded to two decimal places.
 For example, given a "$10.00" meal price, and a "25%" custom tip value, return ["$1.50", "$2.00", "$2.50"].
 """
+
 def calculate_tips(meal_price, custom_tip):
     meal_price = float(meal_price[1:])
     custom_tip = float(custom_tip[:-1])
     tip_15 = meal_price*.15
     tip_20 = meal_price*.2
     tip_custom = meal_price*custom_tip/100
-        
-    return [
-        f"${tip_15:0.2f}", 
-        f"${tip_20:0.2f}", 
-        f"${tip_custom:0.2f}"
-    ]
+    final_tip_amount = []
+    tips = [0.15, 0.20, custom_tip/100]
+
+    for tip in tips:
+        tip_amount = meal_price*tip
+        final_tip_amount.append(f"${tip_amount:.2f}",)
+
+    return final_tip_amount
+
+    # return [
+    #     f"${tip_15:0.2f}", 
+    #     f"${tip_20:0.2f}", 
+    #     f"${tip_custom:0.2f}"
+    # ]
+print(calculate_tips("$10.00", "25%"))
+
 
 """
 Tests
