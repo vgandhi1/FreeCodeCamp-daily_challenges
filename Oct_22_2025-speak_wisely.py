@@ -40,3 +40,30 @@ print(wise_speak("You must speak wisely."))
 4. wise_speak("All your base are belong to us.") should return "Belong to us, all your base are."
 5. wise_speak("You have much to learn.") should return "Much to learn, you have."
 """
+
+
+def wise_speak(sentence):
+    wise_words = ["have", "must", "are", "will", "can"]
+    words_list = sentence[0:-1].split(" ")
+    punctuation = sentence[-1]
+    word_idx = -1
+    for idx, word in enumerate(words_list):
+        if word.lower() in wise_words:
+            word_idx = idx
+
+    if word_idx != -1:
+            
+            
+   
+        first_word = words_list[word_idx + 1].capitalize()
+
+        
+        first_sentence = first_word + ' ' +" ".join(words_list[word_idx + 2:])
+
+        end_sentence = " ".join(words_list[:word_idx + 1]).lower()
+                
+        return f"{first_sentence}, {end_sentence}{punctuation}"
+    return sentence
+#print(wise_speak("You must speak wisely."))
+
+print(wise_speak("You canee do it now!"))
