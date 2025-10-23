@@ -10,6 +10,20 @@ Each object will have a "title" property (string), and a "plays" property (integ
 
 def favorite_songs(playlist):
     
+    
+    final_list = []
+  
+    new_list_sorted = sorted(playlist, key =lambda item: item["plays"], reverse = True)
+
+    for item in new_list_sorted:
+        final_list.append(item["title"])
+
+    return final_list[:2]
+
+print(favorite_songs([{"title": "Sync or Swim", "plays": 3}, {"title": "Byte Me", "plays": 1}, {"title": "Earbud Blues", "plays": 2} ]))
+
+def favorite_songs(playlist):
+    
     new_list = []
     final_list = []
 
