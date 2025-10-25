@@ -38,6 +38,7 @@ print(complementary_dna("ACGT"))
 
 
 # Constants built once
+# for loop - O(n) slower effficiency
 _DNA_LETTERS = {'A', 'C', 'G', 'T'}
 _COMP_MAP = str.maketrans("ACGT", "TGCA")
 
