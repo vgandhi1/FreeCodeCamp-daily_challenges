@@ -9,10 +9,14 @@ For example, given "ACGT", return "TGCA".
 """
 def complementary_dna(strand):
 
-    DNA_letters = ['A','C','G','T']
+    #efficiency slower O(n) for list 
+    #DNA_letters = ['A','C','G','T']
+    
+    #efficiency slower O(1) for dictionary & set 
+    DNA_letters = {'A','C','G','T'}
     strand = strand.upper()
   
-
+    
     check_DNA_ltters = all(letter in DNA_letters for letter in strand.upper())
     if check_DNA_ltters:
         # Apply the translation map
