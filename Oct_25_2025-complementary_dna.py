@@ -35,3 +35,19 @@ print(complementary_dna("ACGT"))
 3. complementary_dna("GGCTTACGATCGAAG") should return "CCGAATGCTAGCTTC".
 4. complementary_dna("GATCTAGCTAGGCTAGCTAG") should return "CTAGATCGATCCGATCGATC".
 """
+
+
+# Constants built once
+_DNA_LETTERS = {'A', 'C', 'G', 'T'}
+_COMP_MAP = str.maketrans("ACGT", "TGCA")
+
+def complementary_dna(strand: str) -> str:
+    s = strand.upper()
+    # Fast validity check
+    if set(s) - _DNA_LETTERS:
+        raise ValueError("Incorrect DNA strand")
+    return s.translate(_COMP_MAP)
+        
+
+# Examples
+print(complementary_dna("ATGCGTACGTTAGC"))  # TGCA
