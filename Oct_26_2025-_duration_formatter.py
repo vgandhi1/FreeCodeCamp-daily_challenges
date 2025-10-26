@@ -35,3 +35,25 @@ Passed:3. format(1) should return "0:01".
 Passed:4. format(5555) should return "1:32:35".
 Passed:5. format(99999) should return "27:46:39".
 """
+
+def format(total_seconds):
+    # Ensure the input is an integer
+    total_seconds = int(total_seconds)
+
+    # Calculate hours, minutes, and seconds
+    hours = total_seconds // 3600
+    remaining_seconds = total_seconds % 3600
+    
+    minutes = remaining_seconds // 60
+    seconds = remaining_seconds % 60
+    
+       
+    # Rule 3: Hours (H) should be included only if they're greater than zero.
+    if hours > 0:
+        
+        return f"{hours}:{minutes:02}:{seconds:02}"
+    
+    # If hours is 0, the format is "MM:SS"
+    else:
+        
+        return f"{minutes}:{seconds:02}"
