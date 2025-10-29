@@ -10,7 +10,7 @@ For example, given 5, return "12345".
 #     for i in range(n):
 #         string += f"{i+1}"
 
-
+#STRINGS  are IMMUTABLE very slow (specifically, $O(n^2)$ time complexity for the entire loop).
 #     return string
 
 # print(sequence(5))
@@ -21,7 +21,8 @@ For example, given 5, return "12345".
 #     for i in range(n):
 #         string.append(f"{i+1}")
         
-
+# List appends are fast: Appending to a Python list is typically an $O(1)$ (constant-time) operation. 
+#the list-and-join approach much faster for large inputs, typically running in $O(n)$ time complexity.
 #     return "".join(string)
 
 # print(sequence(5))
