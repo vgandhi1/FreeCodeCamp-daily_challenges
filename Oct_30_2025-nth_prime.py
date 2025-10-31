@@ -43,3 +43,32 @@ Passed:3. nth_prime(16) should return 53.
 Passed:4. nth_prime(99) should return 523.
 Passed:5. nth_prime(1000) should return 7919.
 """
+
+from math import isqrt
+
+def nth_prime(n):
+    if n <= 0:
+        raise ValueError("n must be a positive integer")
+
+    if n == 1:
+        return 2
+
+    primes = [2]
+    candidate = 3
+
+    while len(primes) < n:
+        limit = isqrt(candidate)
+        is_p = True
+        for p in primes:
+            if p > limit:
+                break
+            if candidate % p == 0:
+                is_p = False
+                break
+
+        if is_p:
+            primes.append(candidate)
+
+        candidate += 2  # only odd numbers
+
+    return primes[-1]
