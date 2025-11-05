@@ -9,10 +9,10 @@ Return the images in the same order they appear in the input array.
 """
 
 def image_search(images, term):
-    split_images = [image.replace(".","").lower() for image in images]
+    lower_images = [image.lower() for image in images]
     lower_term = term.lower()
     listed_images = []
-    for idx, image in enumerate(split_images):
+    for idx, image in enumerate(lower_images):
         if lower_term in image:
             listed_images.append(images[idx])
 
