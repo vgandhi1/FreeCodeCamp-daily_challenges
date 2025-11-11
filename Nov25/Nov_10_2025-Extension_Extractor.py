@@ -30,3 +30,16 @@ Waiting:4. get_extension(".gitignore") should return "gitignore".
 Waiting:5. get_extension("archive.tar.gz") should return "gz".
 Waiting:6. get_extension("final.draft.") should return "none".
 """
+
+def get_extension(filename):
+    
+    parts = filename.rsplit(".", 1)
+    
+  
+    if len(parts) == 2 and parts[1]:
+        # Both conditions are met: we found a separator AND
+        # the part after it is not empty.
+        return parts[1]
+    
+    
+    return "none"
