@@ -7,19 +7,21 @@ If the filename does not contain a period or ends with a period, return "none".
 The extension should be returned as-is, preserving case.
 """
 def get_extension(filename):
-    
-    extension = filename.split(".")[-1]
-    if extension:
-        if   len(filename.split(".")) > 1:
-            return extension
-        else: 
-            return "none"
-    
-    else:
-        return "none"
+    extension = filename.split(".")[-1]
+    if extension:
+        if len(filename.split(".")) > 1:
+            return extension
+        else:
+            return "none"
+    else:
+        return "none"
 
 print(get_extension("final.draft."))
 print(get_extension("README"))
+print(get_extension("image.PNG"))
+print(get_extension(".gitignore"))
+print(get_extension("archive.tar.gz"))
+print(get_extension("final.draft."))
 
 """
 Tests
@@ -32,14 +34,11 @@ Waiting:6. get_extension("final.draft.") should return "none".
 """
 
 def get_extension(filename):
-    
     parts = filename.rsplit(".", 1)
-    
-  
+
     if len(parts) == 2 and parts[1]:
         # Both conditions are met: we found a separator AND
         # the part after it is not empty.
         return parts[1]
-    
-    
+
     return "none"
