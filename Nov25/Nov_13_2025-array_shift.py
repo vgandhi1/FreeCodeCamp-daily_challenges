@@ -27,3 +27,21 @@ Passed: 3. shift_array(["alpha", "bravo", "charlie"], 5) should return ["charlie
 Passed: 4. shift_array(["alpha", "bravo", "charlie"], -11) should return ["bravo", "charlie", "alpha"].
 Passed: 5. shift_array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 15) should return [5, 6, 7, 8, 9, 0, 1, 2, 3, 4].
 """
+
+
+def shift_array(arr, n):
+    # Handle empty arrays to avoid errors
+    if not arr:
+        return []
+        
+    m = len(arr)
+    
+    # Calculate the "split point"
+    # Python's % handles positive and negative n correctly
+    # to find the index that will become the new start.
+    k = n % m
+    
+    # Splice the array at index k and swap the pieces
+    # arr[k:] is the new beginning
+    # arr[:k] is the new end
+    return arr[k:] + arr[:k]
