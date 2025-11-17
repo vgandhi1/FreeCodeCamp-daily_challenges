@@ -29,3 +29,20 @@ Waiting:4. is_match("thequickbrownfoxjumpsoverthelazydog", "thequickbrownfoxjump
 Waiting:5. is_match("theslickbrownfoxjumpsoverthelazydog", "thequickbrownfoxjumpsoverthehazydog") should return True.
 Waiting:6. is_match("thequickbrownfoxjumpsoverthelazydog", "thequickbrownfoxjumpsoverthehazycat") should return False.
 """
+
+def is_match_optimized(fingerprint_a, fingerprint_b):
+    length = len(fingerprint_a)
+    if length != len(fingerprint_b):
+        return False
+    
+    limit = length * 0.1
+    diff = 0
+    
+    for a, b in zip(fingerprint_a, fingerprint_b):
+        if a != b:
+            diff += 1
+        # Early exit optimization
+        if diff > limit:
+            return False
+            
+    return True
