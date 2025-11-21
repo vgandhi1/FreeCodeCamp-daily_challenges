@@ -12,15 +12,16 @@ import re
 def longest_word(sentence):
     clean_text = re.sub(r'[^\w\s]', '', sentence)
     words = clean_text.split(" ")
-    n = 0
+    
+    result = ""
     for word in words:
-        if len(word) > n:
+        if len(word) > len(result):
             n = len(word)
-            longest_word = word
+            result = word
 
 
 
-    return longest_word
+    return result
 
 print(longest_word("The quick red fox"))
 print(longest_word("Do Try This At Home."))
