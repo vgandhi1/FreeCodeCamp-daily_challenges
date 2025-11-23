@@ -18,7 +18,7 @@ def count_characters(sentence):
     sentence_list = []
     freq = {}
 
-    freq_ = Counter(sentence)
+    #freq_ = Counter(sentence)
 
     for char in sentence:
         freq[char] = freq.get(char, 0) + 1
