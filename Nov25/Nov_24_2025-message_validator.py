@@ -7,6 +7,11 @@ Letters are case-insensitive.
 Words in the message are separated by single spaces.
 """
 def is_valid_message(message, validation):
+    Handle empty input edge case immediately
+    if not message and not validation:
+        return True
+    if not validation:
+        return False
     valid_message = "".join(m[0].lower() for m in message.split(" "))
 
     return valid_message == validation.lower()
