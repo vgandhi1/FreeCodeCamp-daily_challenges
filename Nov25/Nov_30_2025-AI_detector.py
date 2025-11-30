@@ -12,7 +12,7 @@ If the given sentence meets any of the rules above, return "AI", otherwise, retu
 """
 def detect_ai(text):
 
-    words = text.replace(".","").split(" ")
+    
 
     counter_dash = 0
     counter_par = 0
@@ -27,6 +27,8 @@ def detect_ai(text):
     # new_text = re.sub(r'[^a-zA-Z ]', '', text)
     # long_word_count = 0
     # words = new_text.split(" ")
+
+    words = text.replace(".","").split(" ")
 
     for word in words:
         if len(word) >= 7:
