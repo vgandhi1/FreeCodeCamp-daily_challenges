@@ -23,10 +23,12 @@ def format_date(date_string):
     "December": 12
     }
 
-    mm_string = date_string.split(" ")[0]
-    mm = month_to_number.get(mm_string)
-    dd = int(date_string.split(" ")[1].replace(",",""))
-    year = date_string.split(" ")[-1]
+    month_str, day_str, year = date_string.split()
+
+    #mm_string = date_string.split(" ")[0]
+    mm = month_to_number.get(month_str)
+    dd = int(day_str.replace(",",""))
+    #year = date_string.split(" ")[-1]
 
     return f"{year}-{mm:02}-{dd:02}"
 
