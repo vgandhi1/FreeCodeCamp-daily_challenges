@@ -37,3 +37,19 @@ Passed:3. convert_to_kgs(100) should return "100 pounds equals 45.36 kilograms."
 Passed:4. convert_to_kgs(2.5) should return "2.5 pounds equals 1.13 kilograms.".
 Passed:5. convert_to_kgs(2.20462) should return "2.20462 pounds equals 1.00 kilogram.".
 """
+
+def convert_to_kgs(lbs):
+
+    kg = lbs*0.453592 
+    kg_formatted = f"{kg:.2f}"
+
+    lb_unit = "pounds"
+    kg_unit = "kilograms"
+
+    if lbs == 1:
+        lb_unit = "pound"
+    if kg_formatted == "1.00":
+        kg_unit = "kilogram"
+        
+    
+    return f"{lbs} {lb_unit} equals {kg_formatted} {kg_unit}."
