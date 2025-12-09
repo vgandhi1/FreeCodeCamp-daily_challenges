@@ -7,17 +7,19 @@ Words are separated by single spaces.
 For example, given "yes yes yes please", return "yes(3) please".
 """
 
-from collections import Counter
+#from collections import Counter
 def compress_string(sentence):
-    split_sentence = sentence.split()
+    words = sentence.split()
 
-    freq = Counter(split_sentence)
-    new_sentence = ""
-    
+    freq = dict()
+    #freq = Counter(split_sentence)
 
-    new_sentence = " ".join(f"{key}({value})" for key, value in freq.items() )
+    for word in words:
+        freq[word] = freq.get(word, 0) + 1
+
+    new_sentence = " ".join(f"{key}({value})" if value > 1 else f"{key}" for key, value in freq.items() )
         
-    return new_sentence.replace("(1)", "") #split_sentence, freq
+    return new_sentence #split_sentence, freq
 
     #return new_sentence
 
