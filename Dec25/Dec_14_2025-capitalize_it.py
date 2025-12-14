@@ -6,13 +6,13 @@ Capitalize the first letter of each word.
 Make all other letters in each word lowercase.
 Words are always separated by a single space.
 """
-
+#import string
 def title_case(title):
     title_list = title.lower().split(" ")
     
 
 
-    return " ".join(word.capitalize() for word in title_list)
+    return " ".join(word.capitalize() for word in title_list) #string.capwords(title)
 
 print(title_case("hello world"))
 
