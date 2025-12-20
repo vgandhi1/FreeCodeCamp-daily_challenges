@@ -30,3 +30,30 @@ Passed:2. pairwise([4, 1, 5, 2, 6, 3], 7) should return 15.
 Passed:3. pairwise([-30, -15, 5, 10, 15, -5, 20, -40], -20) should return 22.
 Passed:4. pairwise([7, 9, 13, 19, 21, 6, 3, 1, 4, 8, 12, 22], 24) should return 10.
 """
+
+
+def pairwise(arr, target):
+    used_indices = set()
+    total_indices_sum = 0
+    
+    n = len(arr)
+    
+    for i in range(n):
+        # Skip if this index was already paired
+        if i in used_indices:
+            continue
+            
+        for j in range(i + 1, n): # Start from i+1 to avoid self-pairing and double-counting
+            # Skip if this index was already paired
+            if j in used_indices:
+                continue
+            
+            if arr[i] + arr[j] == target:
+                total_indices_sum += (i + j)
+                # Mark these as used so they aren't picked again
+                used_indices.add(i)
+                used_indices.add(j)
+                # Once i is paired, break the inner loop to move to the next available i
+                break
+                
+    return total_indices_sum
