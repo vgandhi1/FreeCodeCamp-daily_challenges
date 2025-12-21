@@ -19,6 +19,7 @@ def create_board(dimensions):
     m, n =dimensions
 
     checkerboard = []
+    #checkerboard = [["X" if(i+j)%2 ==0 else "O" for j in range(n)] for i in range(m)]
 
     for i in range(m):
         raw_i = []
