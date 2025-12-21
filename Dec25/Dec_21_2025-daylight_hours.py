@@ -26,7 +26,17 @@ def daylight_hours(latitude):
         0: 12, 15: 11, 30: 10, 45: 9, 60: 6, 75: 2, 90: 0
     }
 
-    closest_lat = min(day_light_hours.keys(), key = lambda x: abs(x - latitude))
+    dist = float("inf")
+
+    for lat in day_light_hours.keys():
+        lat_dist = abs(lat - latitude)
+
+        if lat_dist < dist:
+            dist = lat_dist
+            closest_lat  = lat
+
+
+    #closest_lat = min(day_light_hours.keys(), key = lambda x: abs(x - latitude))
 
     return day_light_hours[closest_lat]
 
