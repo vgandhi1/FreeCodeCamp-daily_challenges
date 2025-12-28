@@ -37,3 +37,17 @@ Passed: 4. rock_paper_scissors("Rock", "Scissors") should return "Player 1 wins"
 Passed: 5. rock_paper_scissors("Scissors", "Scissors") should return "Tie".
 Passed: 6. rock_paper_scissors("Scissors", "Rock") should return "Player 2 wins".
 """
+
+def rock_paper_scissors(player1, player2):
+    beats = {
+        "Rock" : "Scissors",
+"Paper" : "Rock",
+"Scissors" : "Paper"
+    }
+
+    if beats[player1] == player2:
+        return "Player 1 wins"
+    if player1 == player2:
+        return "Tie"
+
+    return "Player 2 wins"
