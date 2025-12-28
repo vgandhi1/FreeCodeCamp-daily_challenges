@@ -47,22 +47,25 @@ Passed:5. to_screaming_snake_case("username") should return "USERNAME".
 
 def to_screaming_snake_case(variable_name):
     variable_name = variable_name.replace("-", "_")
-
+    n = len(variable_name)
     words = []
-    start = 0
 
-    for i in range(1, len(variable_name)):
-        if variable_name[i].isupper():
-            words.append(variable_name[start:i])
-            start = i
+    start_letter = 0
 
-    words.append(variable_name[start:])
+    for i in range(1, n):
+        letter = variable_name[i]
+        if letter.isupper():
+            word = variable_name[start_letter:i]
+            words.append(word)
+            start_letter = i
+            
+    words.append(variable_name[start_letter:])
 
-    final_words = []
-    for word in words:
-        final_words.extend(word.split("_"))
 
-    return "_".join(w.upper() for w in final_words if w)
+    return "_".join(word.upper() for word in words if word)
+    
+print(to_screaming_snake_case("userEmail"))
+
 
 
 import re
