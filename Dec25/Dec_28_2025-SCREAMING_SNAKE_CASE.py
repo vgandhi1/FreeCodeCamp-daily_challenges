@@ -58,11 +58,14 @@ def to_screaming_snake_case(variable_name):
 
     words.append(variable_name[start:])
 
-    
+    final_words = []
+    for word in words:
+        final_words.extend(word.split("_"))
 
-    return "_".join(w.upper() for w in words if w)
+    return "_".join(w.upper() for w in final_words if w)
 
-    import re
+
+import re
 
 def to_screaming_snake_case(name):
     name = re.sub(r'([a-z0-9])([A-Z])', r'\1_\2', name)
