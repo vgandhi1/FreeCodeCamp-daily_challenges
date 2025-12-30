@@ -20,7 +20,7 @@ def string_sum(s):
                 current_num_in_string = ""
     if current_num_in_string:
         current_number = int(current_num_in_string)
-    total_string_sum.append(current_number)
+        total_string_sum.append(current_number)
 
     return  sum(total_string_sum)
 
