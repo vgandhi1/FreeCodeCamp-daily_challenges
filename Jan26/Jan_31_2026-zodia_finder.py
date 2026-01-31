@@ -63,7 +63,7 @@ Passed:3. get_sign("1985-09-07") should return "Virgo".
 Passed:4. get_sign("2023-03-19") should return "Pisces".
 Passed:5. get_sign("2045-11-05") should return "Scorpio".
 Passed:6. get_sign("1985-12-06") should return "Sagittarius".
-Failed:7. get_sign("2025-12-30") should return "Capricorn".
+Passed:7. get_sign("2025-12-30") should return "Capricorn".
 Passed:8. get_sign("2018-10-08") should return "Libra".
 Passed:9. get_sign("1958-05-04") should return "Taurus".
 """
